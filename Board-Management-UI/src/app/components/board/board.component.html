@@ -1,0 +1,46 @@
+<button (click)="openCreateModal()" class="btn-create">Add Task</button>
+
+<div class="board">
+  <div class="stage" id="backlog">
+    <div class="borders">
+      <strong>Backlog</strong>
+    </div>
+  </div>
+
+  <div class="stage" id="sit">
+    <div class="borders">
+      <strong>Sit</strong>
+    </div>
+  </div>
+
+  <div class="stage" id="dev">
+    <div class="borders">
+      <strong>Dev</strong>
+    </div>
+  </div>
+</div>
+
+<!-- <p *ngIf="isModalOpen">Live is good modeling</p> -->
+<app-add-task-model [title]="'My Modal'" *ngIf="isModalOpen"><p>This is the content</p></app-add-task-model>
+
+
+<div class="modal" id="myModal" *ngIf="isModalOpen">
+  <div class="modal-content">
+    <span (click)="closeModal()" style="cursor: pointer; float: right;">&times;</span>
+    <p>Create Task</p>
+        <form id="taskForm">
+        <label for="taskName"><i>Task Name:</i></label>
+        <!-- <input type="text" id="taskName" name="taskName" required [(ngModel)]="taskName"> -->
+        <input type="text" id="taskName" [ngModelOptions]="{standalone: true}" required [(ngModel)]="taskName">
+        <label for="taskDescription"><i>Description:</i></label>
+        <!-- <textarea id="taskDescription" name="taskDescription" required [(ngModel)]="taskDescription"></textarea> -->
+        <textarea id="taskDescription" [ngModelOptions]="{standalone: true}" required [(ngModel)]="taskDescription"></textarea>
+        <label for="assignee"><i>Assignee:</i></label>
+        <select id="assignee" [ngModelOptions]="{standalone: true}" style="margin-bottom: 5px;" required [(ngModel)]="assignee">
+          <option *ngFor="let user of users" [value]="replaceSpaces(user)">{{ user }}</option>
+        </select>
+      
+        <button type="button" (click)="createTask()">Submit</button>
+      </form>      
+  </div>
+</div>

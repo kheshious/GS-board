@@ -1,0 +1,166 @@
+
+nav {
+    background-color: #4099CB;
+    color: white;
+    padding: 10px;
+    padding-top: 20px;
+    height: 50px;
+
+  }
+  
+  nav div {
+    font-size: 1.5rem;
+    height: 30px;
+    margin-top: 10px;
+  }
+
+  @media (max-width: 768px) {
+    body {
+      overflow: hidden;
+    }
+  }
+  
+.stage-headers{
+    width: 100% !important;
+    border-bottom: 2px solid grey;
+}
+
+.stage-body {
+  max-height: 80vh;
+  overflow-y: auto;
+  // width: 100%;
+  // height: auto;
+}
+
+.stage-container {
+    display: flex;
+    justify-content: space-around;
+    height: 100vh;
+    // width: 100vw;
+    // overflow-x: scroll;
+    // flex-wrap: wrap;
+  }
+  
+  .stage-box {
+    margin-top: 10px;
+    border-top: 2px solid grey;
+    text-align: center;
+    width: 18%;
+  }
+  
+  .card {
+    border: 1px solid #ddd;
+    padding: 2px;
+    margin: 5px;
+    margin-bottom: 15px;
+    text-align: start;
+    background-color: rgba(217, 217, 217, 0.556);
+    border-bottom: 4px solid blue;
+  }
+
+  .addTask{
+    margin-top: 10px;
+    border-radius: 0%;
+    margin-left: 10px;
+  }
+
+  .btnMove{
+    display: flex;
+    justify-content: space-between;
+    text-align: end;
+    margin-top: 10px;
+    button {
+        background-color: #4099CB;
+        border: none;
+        border-radius: 4px;
+        margin: 2px;
+        color: white;
+        height: 25px;
+        width: 60px;
+    };
+  }
+  
+  .btnaddTask {
+    background-color: #4099CB;
+    border: none;
+    border-radius: 4px;
+    margin-top: 10px;
+    margin-left: 0px;
+    color: white;
+    height: 25px;
+    width: 70px;
+  }
+
+  .icon-text {
+    margin-bottom: 5px; 
+  }
+
+  body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .pos {
+    width: 25px;
+    height: 25px;
+    border-radius: 10px;
+    color: #4099CB;
+    margin-top: 10px;
+  }
+
+  .id {
+    color: rgb(54, 141, 208);
+  }
+
+  .name {
+    color: rgb(129, 126, 126);
+    font-weight: bold;
+  }
+
+  // .complete-box {
+  //   margin-top: 6px;
+  //   border-top: 2px solid black;
+  //   width: 100%;
+  //   padding-left: 20px;
+  //   .stage-body{
+  //     display: flex;
+  //     width: 100%;
+  //     height: 80vh;
+  //     overflow: auto;
+  //     padding: 0px 10px 10px 10px;
+  //     .card {
+  //       width: 20%;
+      
+  //     }
+  //   }
+  // }
+
+  .complete-box {
+    margin-top: 6px;
+    border-top: 2px solid black;
+    width: 100%;
+    padding-left: 20px;
+  
+    .stage-body {
+      display: flex;
+      flex-wrap: wrap; /* Allow items to wrap to the next line */
+      width: 100%;
+      height: 80vh;
+      overflow: auto;
+      padding: 0px 10px 10px 10px;
+  
+      .card {
+        flex: 0 0 20%; /* Flex-basis set to 20%, preventing item from growing or shrinking */
+        box-sizing: border-box; /* Include padding and border in the total width/height */
+        // margin: 0; /* Remove default margin to prevent unexpected spacing */
+        border: 1px solid #ddd;
+        padding: 2px;
+        margin: 5px;
+        margin-bottom: 15px;
+        text-align: start;
+        background-color: rgba(217, 217, 217, 0.556);
+        border-bottom: 4px solid blue;
+      }
+    }
+  }

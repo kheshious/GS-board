@@ -1,0 +1,158 @@
+<html>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-... (integrity hash)" crossorigin="anonymous" />
+
+<nav>
+    <div>Generic switch</div>
+  </nav>
+  
+ <body>
+  <button (click)="openModal()" class="addTask btnaddTask">Add Task</button>
+  <button (click)="closedTasks()" class="addTask btnaddTask">Closed Tasks</button>
+  <div class="stage-container" *ngIf="viewCompletedTask === false">
+    <div class="stage-box">
+      <h4 class="stage-headers">Code Inception</h4>
+      <div class="stage-body">
+        <div *ngFor="let task of codeInception">
+          <div class="card">
+            <label><i class="fas fa-tasks fa-lg" style="color: blue;"></i> <span class="id"> #{{task.id}}</span>: <span class="name">{{ task.name }} </span></label><br>
+            <p><i class="fas fa-user fa-lg" style="color: green;"></i> {{ task.assignee }}</p>
+            <div class="btnMove">
+              <div class="more-details" (click)="openDetailsModal(task)">
+                <i class="fas fa-info-circle fa-lg pos"></i>
+              </div> 
+              
+              <button (click)="moveTask(task)">
+                <i class="fas fa-arrow-right fa-lg" ></i>
+              </button>
+            </div>
+                    
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stage-box">
+      <h4 class="stage-headers">Code Review after dev</h4>
+      <div class="stage-body">
+        <div *ngFor="let task of codeReviewDev">
+          <div class="card">
+            <label><i class="fas fa-tasks fa-lg" style="color: blue;"></i> <span class="id"> #{{task.id}}</span>: <span class="name">{{ task.name }} </span></label><br>
+            <p><i class="fas fa-user fa-lg" style="color: green;"></i> {{ task.assignee }}</p>
+            <div class="btnMove">
+              <div class="more-details" (click)="openDetailsModal(task)">
+                <i class="fas fa-info-circle fa-lg pos"></i>
+              </div> 
+              
+              <button (click)="moveTask(task)">
+                <i class="fas fa-arrow-right fa-lg" ></i>
+              </button>
+            </div>
+                    
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stage-box">
+      <h4 class="stage-headers">TCR Review</h4>
+      <div class="stage-body">
+        <div *ngFor="let task of trcReview">
+          <div class="card">
+            <label><i class="fas fa-tasks fa-lg" style="color: blue;"></i> <span class="id"> #{{task.id}}</span>: <span class="name">{{ task.name }} </span></label><br>
+            <p><i class="fas fa-user fa-lg" style="color: green;"></i> {{ task.assignee }}</p>
+            <div class="btnMove">
+              <div class="more-details" (click)="openDetailsModal(task)">
+                <i class="fas fa-info-circle fa-lg pos"></i>
+              </div> 
+              
+              <button (click)="moveTask(task)">
+                <i class="fas fa-arrow-right fa-lg" ></i>
+              </button>
+            </div>
+                    
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stage-box">
+      <h4 class="stage-headers">CCR</h4>
+      <div class="stage-body">
+        <div *ngFor="let task of ccr">
+          <div class="card">
+            <label><i class="fas fa-tasks fa-lg" style="color: blue;"></i> <span class="id"> #{{task.id}}</span>: <span class="name">{{ task.name }} </span></label><br>
+            <p><i class="fas fa-user fa-lg" style="color: green;"></i> {{ task.assignee }}</p>
+            <div class="btnMove">
+              <div class="more-details" (click)="openDetailsModal(task)">
+                <i class="fas fa-info-circle fa-lg pos"></i>
+              </div> 
+              
+              <button (click)="moveTask(task)">
+                <i class="fas fa-arrow-right fa-lg" ></i>
+              </button>
+            </div>
+                    
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stage-box">
+      <h4 class="stage-headers">Code Deployment</h4>
+      <div class="stage-body">
+        <div *ngFor="let task of codeDeployment">
+          <div class="card">
+            <label><i class="fas fa-tasks fa-lg" style="color: blue;"></i> <span class="id"> #{{task.id}}</span>: <span class="name">{{ task.name }} </span></label><br>
+            <p><i class="fas fa-user fa-lg" style="color: green;"></i> {{ task.assignee }}</p>
+            <div class="btnMove">
+              <div class="more-details" (click)="openDetailsModal(task)">
+                <i class="fas fa-info-circle fa-lg pos"></i>
+              </div> 
+              
+              <button (click)="moveTask(task)">
+                <i class="fas fa-arrow-right fa-lg" ></i>
+              </button>
+            </div>
+                    
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="completed-container" *ngIf="viewCompletedTask === true">
+
+    <div class="complete-box">
+      <h4 class="stage-headers">Completed/Closed Tasks</h4>
+      <div class="stage-body">
+        <div *ngFor="let task of completedTasks">
+          <div class="card">
+            <label><i class="fas fa-tasks fa-lg" style="color: blue;"></i> <span class="id"> #{{task.id}}</span>: <span class="name">{{ task.name }} </span></label><br>
+            <p><i class="fas fa-user fa-lg" style="color: green;"></i> {{ task.assignee }}</p>
+            <div class="btnMove">
+              <div class="more-details" (click)="openDetailsModal(task)">
+                <i class="fas fa-info-circle fa-lg pos"></i>
+              </div> 
+              
+              <!-- <button (click)="moveTask(task)">
+                <i class="fas fa-arrow-right fa-lg" ></i>
+              </button> -->
+            </div>
+                    
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  
+  <app-add-task-model
+  *ngIf="modalOpen"
+  (taskSubmitted)="addTask($event)"
+  (modalClosed)="closeModal()"
+></app-add-task-model>
+</body> 
+</html>
+
+

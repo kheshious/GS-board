@@ -1,0 +1,92 @@
+* {
+  border-radius: 0px;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+.board {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+  }
+  
+  .stage {
+    flex: 1;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    padding: 0px;
+    margin: 10px;
+    min-height: 200px;
+    border-left: 0px;
+    border-right: 0px;
+    /* border-bottom: 0px; */
+  }
+  
+  .borders {
+    border-bottom: 2px solid black;
+  }
+
+  .modal.show {
+    display: flex;
+  }
+  
+  .card {
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 5px;
+  }
+  
+  input,
+  textarea {
+    margin-bottom: 10px;
+    padding: 5px;
+  }
+  
+  button {
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn-create {
+    margin-top: 10px;
+    margin-left: 29px;
+  }
+  .line{
+    border: 1px solid #333;
+  }
+  

@@ -1,0 +1,200 @@
+[
+  {
+    "id": 1,
+    "name": "Modify-UI",
+    "assignee": "User1",
+    "description": "Positioning buttons to improve user experience",
+    "createdDate": "11-12-2-20 11:12:01",
+    "modifiedDate": "11-12-2-20 11:12:01",
+    "status": "codeInception"
+  },
+  {
+    "id": 2,
+    "name": "item 2",
+    "assignee": "user2",
+    "description": "item 2 description",
+    "createdDate": "11-12-2-20 11:12:01",
+    "modifiedDate": "2024/01/10",
+    "status": "completed"
+  },
+  {
+    "id": 3,
+    "name": "item 3",
+    "assignee": "user3",
+    "description": "item 3 description",
+    "createdDate": "11-12-2-20 11:12:01",
+    "modifiedDate": "2024/01/10",
+    "status": "ccr"
+  },
+  {
+    "id": 4,
+    "name": "Task 8",
+    "assignee": "Tlou",
+    "description": "item 2 description",
+    "createdDate": "11-12-2-20 11:12:01",
+    "modifiedDate": "2024/01/10",
+    "status": "completed"
+  },
+  {
+    "id": 5,
+    "name": "item 5",
+    "assignee": "user5",
+    "description": "item 5 description",
+    "createdDate": "11-12-2-20 11:12:01",
+    "modifiedDate": "2024/01/10",
+    "status": "completed"
+  },
+  {
+    "name": "item 6",
+    "assignee": "user6",
+    "description": "item 2 description",
+    "createdDate": "11-12-2-20 11:12:01",
+    "modifiedDate": "2024/01/10",
+    "status": "completed",
+    "id": 6
+  },
+  {
+    "name": "item 7",
+    "description": "Inspect servers",
+    "assignee": "user27",
+    "createdDate": "2024/01/04",
+    "modifiedDate": "2024/01/04",
+    "status": "codeInception",
+    "id": 7
+  },
+  {
+    "name": "Task 8",
+    "description": "Restart the services at 3 pm",
+    "assignee": "user8",
+    "createdDate": "2024/01/04",
+    "modifiedDate": "2024/01/04",
+    "status": "codeInception",
+    "id": 8
+  },
+  {
+    "name": "Implement login page",
+    "description": "Implement end-to-end login page in Generic switch UI",
+    "assignee": "Kat",
+    "createdDate": "2024/01/04",
+    "modifiedDate": "2024/01/04",
+    "status": "codeInception",
+    "id": 9
+  },
+  {
+    "name": "dfghjk",
+    "description": "ghjkl",
+    "assignee": "user10",
+    "createdDate": "2024/01/05",
+    "modifiedDate": "2024/01/05",
+    "status": "codeInception",
+    "id": 10
+  },
+  {
+    "name": "Automation",
+    "description": "",
+    "assignee": "Kat",
+    "createdDate": "2024/01/08",
+    "modifiedDate": "2024/01/08",
+    "status": "codeInception",
+    "id": 11
+  },
+  {
+    "id": 12,
+    "name": "Modify-UI",
+    "assignee": "User1",
+    "description": "Positioning buttons to improve user experience",
+    "createdDate": "11-12-2-20 11:12:01",
+    "modifiedDate": "11-12-2-20 11:12:01",
+    "status": "codeInception"
+  },
+  {
+    "id": 13,
+    "name": "item 2",
+    "assignee": "user2",
+    "description": "item 2 description",
+    "createdDate": "11-12-2-20 11:12:01",
+    "modifiedDate": "2024/01/17",
+    "status": "trcReview"
+  },
+  {
+    "id": 14,
+    "name": "item 3",
+    "assignee": "user3",
+    "description": "item 3 description",
+    "createdDate": "11-12-2-20 11:12:01",
+    "modifiedDate": "2024/01/10",
+    "status": "codeDeployment"
+  },
+  {
+    "id": 15,
+    "name": "item 4",
+    "assignee": "user4",
+    "description": "item 4 description",
+    "createdDate": "11-12-2-20 11:12:01",
+    "modifiedDate": "2024/01/10",
+    "status": "completed"
+  },
+  {
+    "id": 16,
+    "name": "item 5",
+    "assignee": "user5",
+    "description": "item 5 description",
+    "createdDate": "11-12-2-20 11:12:01",
+    "modifiedDate": "2024/01/10",
+    "status": "completed"
+  },
+  {
+    "name": "item 6",
+    "assignee": "user6",
+    "description": "item 2 description",
+    "createdDate": "11-12-2-20 11:12:01",
+    "modifiedDate": "2024/01/10",
+    "status": "completed",
+    "id": 17
+  },
+  {
+    "name": "item 7",
+    "description": "Inspect servers",
+    "assignee": "user27",
+    "createdDate": "2024/01/04",
+    "modifiedDate": "2024/01/04",
+    "status": "codeInception",
+    "id": 16
+  },
+  {
+    "name": "Task 8",
+    "description": "Restart the services at 3 pm",
+    "assignee": "user8",
+    "createdDate": "2024/01/04",
+    "modifiedDate": "2024/01/04",
+    "status": "codeInception",
+    "id": 18
+  },
+  {
+    "name": "UI Modification",
+    "description": "Edit CSS to make the UI responsive on small screens.",
+    "assignee": "Kat",
+    "createdDate": "2024-01-10T14:37:14.181Z",
+    "modifiedDate": "2024/01/10",
+    "status": "trcReview",
+    "id": 20
+  },
+  {
+    "name": "Delete Expired Data",
+    "description": "No description",
+    "assignee": "Kat",
+    "createdDate": "2024-01-10T14:42:36.081Z",
+    "modifiedDate": "2024/01/10",
+    "status": "codeReviewDev",
+    "id": 21
+  },
+  {
+    "name": "Generic switch",
+    "description": "fghjkl;",
+    "assignee": "John",
+    "createdDate": "2024-01-15T13:38:01.011Z",
+    "modifiedDate": "2024/01/17",
+    "status": "trcReview",
+    "id": 22
+  }
+]
