@@ -1,0 +1,19 @@
+<div class="completed-container">
+    <button routerLink="/board" class="addTask btnaddTask">View Board</button>
+
+    <div class="complete-box">
+        <h4 class="stage-headers"><b>Completed/Closed Tasks</b></h4>
+        <div class="stage-body">
+            <div class="card" *ngFor="let task of completedTasks">
+                <label><span class="id">#{{task.id}}</span></label><br>
+                <label><i class="fas fa-tasks fa-lg" style="color: blue;"></i><span class="name">{{ task.name }}</span></label><br>
+                <p><i class="fas fa-user fa-lg" style="color: green;"></i> {{ task.assignee }}</p>
+                <div class="btnMove">
+                    <div class="more-details" (click)="openDetailsModal(task)">
+                        <i class="fas fa-info-circle fa-lg"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

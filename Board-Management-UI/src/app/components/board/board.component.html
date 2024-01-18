@@ -1,46 +1,131 @@
-<button (click)="openCreateModal()" class="btn-create">Add Task</button>
-
-<div class="board">
-  <div class="stage" id="backlog">
-    <div class="borders">
-      <strong>Backlog</strong>
+<body>
+  <div class="displayFlex">
+    <button (click)="openModal()" class="addTask btnaddTask">Add Task</button>
+    <button routerLink="/done-tasks" class="addTask closedTask">Closed Tasks</button>
+  </div>
+  <div class="stage-container">
+    <div class="stage-box">
+      <h4 class="stage-headers">Code Inception</h4>
+      <div class="stage-body">
+        <div *ngFor="let task of codeInception">
+          <div class="card">
+            <label><span class="id"> #{{task.id}}</span></label><br>
+            <label><i class="fas fa-tasks fa-lg" style="color: blue;"></i><span class="name">{{ task.name }} </span></label><br>
+            <p><i class="fas fa-user fa-lg" style="color: green;"></i> {{ task.assignee }}</p>
+            <div class="btnMove">
+              <div class="more-details" (click)="openDetailsModal(task)">
+                <i class="fas fa-info-circle fa-lg pos"></i>
+              </div> 
+              
+              <button (click)="moveTask(task)">
+                <i class="fas fa-arrow-right fa-lg" ></i>
+              </button>
+            </div>
+                    
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="stage" id="sit">
-    <div class="borders">
-      <strong>Sit</strong>
+    <div class="stage-box">
+      <h4 class="stage-headers">Code Review after dev</h4>
+      <div class="stage-body">
+        <div *ngFor="let task of codeReviewDev">
+          <div class="card">
+            <label><span class="id"> #{{task.id}}</span></label><br>
+            <label><i class="fas fa-tasks fa-lg" style="color: blue;"></i><span class="name">{{ task.name }} </span></label><br>
+            <p><i class="fas fa-user fa-lg" style="color: green;"></i> {{ task.assignee }}</p>
+            <div class="btnMove">
+              <div class="more-details" (click)="openDetailsModal(task)">
+                <i class="fas fa-info-circle fa-lg pos"></i>
+              </div> 
+              
+              <button (click)="moveTask(task)">
+                <i class="fas fa-arrow-right fa-lg" ></i>
+              </button>
+            </div>
+                    
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="stage" id="dev">
-    <div class="borders">
-      <strong>Dev</strong>
+    <div class="stage-box">
+      <h4 class="stage-headers">TCR Review</h4>
+      <div class="stage-body">
+        <div *ngFor="let task of trcReview">
+          <div class="card">
+            <label><span class="id"> #{{task.id}}</span></label><br>
+            <label><i class="fas fa-tasks fa-lg" style="color: blue;"></i><span class="name">{{ task.name }} </span></label><br>
+            <p><i class="fas fa-user fa-lg" style="color: green;"></i> {{ task.assignee }}</p>
+            <div class="btnMove">
+              <div class="more-details" (click)="openDetailsModal(task)">
+                <i class="fas fa-info-circle fa-lg pos"></i>
+              </div> 
+              
+              <button (click)="moveTask(task)">
+                <i class="fas fa-arrow-right fa-lg" ></i>
+              </button>
+            </div>
+                    
+          </div>
+        </div>
+      </div>
     </div>
+
+    <div class="stage-box">
+      <h4 class="stage-headers">CCR</h4>
+      <div class="stage-body">
+        <div *ngFor="let task of ccr">
+          <div class="card">
+            <label><span class="id"> #{{task.id}}</span></label><br>
+            <label><i class="fas fa-tasks fa-lg" style="color: blue;"></i><span class="name">{{ task.name }} </span></label><br>
+            <p><i class="fas fa-user fa-lg" style="color: green;"></i> {{ task.assignee }}</p>
+            <div class="btnMove">
+              <div class="more-details" (click)="openDetailsModal(task)">
+                <i class="fas fa-info-circle fa-lg pos"></i>
+              </div> 
+              
+              <button (click)="moveTask(task)">
+                <i class="fas fa-arrow-right fa-lg" ></i>
+              </button>
+            </div>
+                    
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stage-box">
+      <h4 class="stage-headers">Code Deployment</h4>
+      <div class="stage-body">
+        <div *ngFor="let task of codeDeployment">
+          <div class="card">
+            <label><span class="id"> #{{task.id}}</span></label><br>
+            <label><i class="fas fa-tasks fa-lg" style="color: blue;"></i><span class="name">{{ task.name }} </span></label><br>
+            <p><i class="fas fa-user fa-lg" style="color: green;"></i> {{ task.assignee }}</p>
+            <div class="btnMove">
+              <div class="more-details" (click)="openDetailsModal(task)">
+                <i class="fas fa-info-circle fa-lg pos"></i>
+              </div> 
+              
+              <button (click)="moveTask(task)">
+                <i class="fas fa-arrow-right fa-lg" ></i>
+              </button>
+            </div>
+                    
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
-</div>
+  
+  <app-add-task-model
+  *ngIf="modalOpen"
+  (taskSubmitted)="addTask($event)"
+  (modalClosed)="closeModal()"
+></app-add-task-model>
+</body> 
 
-<!-- <p *ngIf="isModalOpen">Live is good modeling</p> -->
-<app-add-task-model [title]="'My Modal'" *ngIf="isModalOpen"><p>This is the content</p></app-add-task-model>
 
-
-<div class="modal" id="myModal" *ngIf="isModalOpen">
-  <div class="modal-content">
-    <span (click)="closeModal()" style="cursor: pointer; float: right;">&times;</span>
-    <p>Create Task</p>
-        <form id="taskForm">
-        <label for="taskName"><i>Task Name:</i></label>
-        <!-- <input type="text" id="taskName" name="taskName" required [(ngModel)]="taskName"> -->
-        <input type="text" id="taskName" [ngModelOptions]="{standalone: true}" required [(ngModel)]="taskName">
-        <label for="taskDescription"><i>Description:</i></label>
-        <!-- <textarea id="taskDescription" name="taskDescription" required [(ngModel)]="taskDescription"></textarea> -->
-        <textarea id="taskDescription" [ngModelOptions]="{standalone: true}" required [(ngModel)]="taskDescription"></textarea>
-        <label for="assignee"><i>Assignee:</i></label>
-        <select id="assignee" [ngModelOptions]="{standalone: true}" style="margin-bottom: 5px;" required [(ngModel)]="assignee">
-          <option *ngFor="let user of users" [value]="replaceSpaces(user)">{{ user }}</option>
-        </select>
-      
-        <button type="button" (click)="createTask()">Submit</button>
-      </form>      
-  </div>
-</div>

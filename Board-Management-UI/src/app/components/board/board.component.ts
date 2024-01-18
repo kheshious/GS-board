@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { Task } from 'src/app/models/task.model';
+import { DataService } from 'src/app/services/data.service';
+import { UtilsService } from 'src/app/services/utils.service';
+import { TaskDetailsModalComponentComponent } from '../task-details-modal.component/task-details-modal.component.component';
 
 @Component({
   selector: 'app-board',
@@ -6,49 +11,110 @@ import { Component } from '@angular/core';
   styleUrls: ['./board.component.scss']
 })
 export class BoardComponent {
-  taskName: string = '';
-  taskDescription: string = '';
-  assignee: string = 'default'; // Assuming 'default' is the initial value
-  users: string[] = ["select", "User 1", "User 2", "Kat", "User 4"];
+  modalOpen = false;
+  viewCompletedTask = false;
+  data: Task[] = [];
 
-  isModalOpen: boolean = false;
- 
-  openCreateModal() {
-    console.log("hi")
-    this.isModalOpen = true;
+  codeInception: Task[] = [];
+  codeReviewDev: Task[] = [];
+  trcReview: Task[] = [];
+  ccr: Task[] = [];
+  codeDeployment: Task[] = [];
+  completedTasks: Task[] = [];
+
+  openModal() {
+    this.modalOpen = true;
   }
 
   closeModal() {
-    this.isModalOpen = false;
+    this.modalOpen = false;
   }
 
-  replaceSpaces(user: string): string {
-    return user.toLowerCase().replace(/\s/g, '');
+  constructor(
+    public dialog: MatDialog,
+    private dataService: DataService,
+    private utilsService: UtilsService) {}
+
+  ngOnInit(): void {
+    this.getAllData();
   }
 
-  createTask() {
-    if (!this.taskName || !this.taskDescription || this.assignee === 'default') {
-      alert('Please fill in all required fields before submitting');
-      return;
-    }
+  getAllData () {
+    this.dataService.getData().subscribe(
+      (result) => {
+        this.data = result;
+        this.filterItemsByStatus(this.data);
+      },
+      (error) => {
+        console.error('Error fetching data:', error);
+      }
+    );
+  }
 
-    // Get the current date and time
+  moveTask(task: Task) {
+    const status = this.getNextStatus(task.status);
     const currentDate = new Date();
-    const formattedDate = currentDate.toLocaleDateString();
-    const formattedTime = currentDate.toLocaleTimeString();
+    const currentDateTime = currentDate.toLocaleDateString();
 
-    console.log("TaskName: ", this.taskName);
-    console.log("TaskDescription: : ", this.taskDescription);
-    console.log("Assignee: ", this.assignee);
+    const newTask: Task = {
+      "id": task.id,
+      "name": task.name,
+      "assignee": task.assignee,
+      "description": task.description,
+      "createdDate": task.createdDate,
+      "modifiedDate": currentDateTime,
+      "status": status
+   }
 
-    // Implement the logic to create a card with the entered details and append it to the backlog stage
+   this.dataService.updateTask(newTask, task.id).subscribe(results => {
+    alert(results.message);
+    window.location.reload();
+   });
 
-    // Close the modal
-    this.closeModal();
-
-    // Reset the form
-    this.taskName = '';
-    this.taskDescription = '';
-    this.assignee = 'default';
   }
+
+  getNextStatus(status: string): string {
+    if(status == 'codeInception') return'codeReviewDev';
+    if(status == 'codeReviewDev')  return 'trcReview';
+    if(status == 'trcReview') return 'ccr';
+    if(status == 'ccr') return 'codeDeployment';
+    if(status == 'codeDeployment') return 'completed';
+    return '';
+  }
+
+  addTask(task: Task) {
+    this.closeModal();
+  }
+
+  closedTasks() {
+    this.viewCompletedTask = true;
+  }
+
+  filterItemsByStatus(data: Task[]) {
+    this.codeInception = this.sortProductsDesc(data.filter(item => item.status === 'codeInception'));
+    this.codeReviewDev = data.filter(item => item.status === 'codeReviewDev');
+    this.trcReview = data.filter(item => item.status === 'trcReview');
+    this.ccr = data.filter(item => item.status === 'ccr');
+    this.codeDeployment = data.filter(item => item.status === 'codeDeployment');
+    this.completedTasks = data.filter(item => item.status === 'completed');
+  }
+
+  openDetailsModal(task: any): void {
+    const dialogConfig: MatDialogConfig = {
+      width: '400px', 
+      position: { top: '30vh', left: '40vw' },
+      data: { task },
+    };
+
+    const dialogRef = this.dialog.open(TaskDetailsModalComponentComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(result => {
+      // window.location.reload();
+    });
+  }
+
+  public sortProductsDesc(tasks: Task[]) {
+    return this.utilsService.sortProductsDesc(tasks);
+  }
+
 }

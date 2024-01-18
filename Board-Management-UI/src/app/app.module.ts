@@ -12,6 +12,7 @@ import { AddTaskModelComponent } from './components/add-task-model/add-task-mode
 import { TaskDetailsModalComponentComponent } from './components/task-details-modal.component/task-details-modal.component.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
+import { CompletedTasksComponent } from './components/completed-tasks/completed-tasks.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     NavbarComponent,
     BoardComponent,
     AddTaskModelComponent,
-    TaskDetailsModalComponentComponent
+    TaskDetailsModalComponentComponent,
+    CompletedTasksComponent
   ],
   imports: [
     BrowserModule,
